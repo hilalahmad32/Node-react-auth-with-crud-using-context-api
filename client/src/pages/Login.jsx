@@ -7,7 +7,7 @@ import { Card, CardHeader, CardContent, TextField, Button } from '@mui/material'
 import { GlobalContext } from '../contextapi/GlobalContext';
 const Login = () => {
     let navigate = useNavigate();
-    const { setToken, getUsers } = useContext(GlobalContext);
+    const { setToken } = useContext(GlobalContext);
     const [users, setUsers] = useState({
         email: '',
         password: ''
@@ -34,7 +34,6 @@ const Login = () => {
                 setToken(res.data.jwt);
                 setUsers({ email: '', password: '' });
                 navigate("/")
-                getUsers();
             } else {
                 alert(res.data.message);
             }
